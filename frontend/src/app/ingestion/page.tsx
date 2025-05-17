@@ -24,7 +24,7 @@ export default function IngestionPage() {
       const res = await getIngestionsAPI();
       setIngestions(res);
     } catch (err) {
-      console.error('Error fetching ingestions', err);
+      alert('Error fetching ingestions');
     } finally {
       setLoading(false);
     }
@@ -39,7 +39,7 @@ export default function IngestionPage() {
       setIngestions(res);
       setStatus('Ingestion complete!');
     } catch (err) {
-      console.error('Ingestion failed', err);
+      alert('Ingestion failed');
       setStatus('Ingestion failed');
     }
   };

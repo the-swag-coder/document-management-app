@@ -40,6 +40,7 @@ export default function SignupPage() {
         <input
           className="w-full mb-3 p-2 border"
           type="text"
+          placeholder="Full Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
@@ -48,6 +49,7 @@ export default function SignupPage() {
         <input
           className="w-full mb-3 p-2 border"
           type="email"
+          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -56,12 +58,14 @@ export default function SignupPage() {
         <input
           className="w-full mb-3 p-2 border"
           type="password"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <label className="block text-sm text-black mb-1">Role</label>
+        <label htmlFor="Role" className="block text-sm text-black mb-1">Role</label>
         <select
+          id="Role"
           className="w-full mb-4 p-2 border text-black"
           value={role}
           onChange={(e) => setRole(e.target.value)}

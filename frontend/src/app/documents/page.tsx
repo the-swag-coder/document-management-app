@@ -39,7 +39,6 @@ export default function DocumentsPage() {
       const res = await uploadDocumentAPI(formData);
       setDocuments((prev) => [...prev, res]);
     } catch (err) {
-      console.error(err);
       alert('Failed to upload');
     } finally {
       setLoading(false);
@@ -54,7 +53,6 @@ export default function DocumentsPage() {
       await deleteDocumentAPI(id);
       setDocuments((prev) => prev.filter((doc) => doc.id !== id));
     } catch (err) {
-      console.error(err);
       alert('Failed to delete');
     } finally {
       setLoading(false);
@@ -70,6 +68,7 @@ export default function DocumentsPage() {
           <input
             type="file"
             className="hidden"
+            data-testid="file-input"
             onChange={handleFileChange}
           />
         </label>
@@ -86,7 +85,8 @@ export default function DocumentsPage() {
               onClick={() => window.open(doc.url, '_blank')}
             >
               <div className="text-4xl">📄</div>
-              <p className="mt-2 text-center text-sm w-full max-w-[200px] overflow-hidden text-ellipsis whitespace-nowrap">
+              <p
+                className="mt-2 text-center text-sm w-full max-w-[200px] overflow-hidden text-ellipsis whitespace-nowrap">
                 {doc.file}
               </p>
             </div>
